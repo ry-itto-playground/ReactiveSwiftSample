@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import ReactiveCocoa
-import ReactiveSwift
-import QiitaAPIKit
 
 class ViewController: UITableViewController {
 

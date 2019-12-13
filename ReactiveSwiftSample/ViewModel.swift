@@ -20,6 +20,8 @@ class ViewModel {
     let items = MutableProperty<Elements>([])
 
     init() {
+        let disposable = SerialDisposable()
+
         let viewDidLoadSignal = Signal<Void, Never>.pipe()
         self.viewDidLoadObserver = viewDidLoadSignal.input
         let producer = SignalProducer<Elements, Never> { observer, _ in
@@ -33,16 +35,18 @@ class ViewModel {
             }
         }
 
-        self.items <~ viewDidLoadSignal.output
-            .flatMap(.latest, { _ in producer })
-            .observe(on: UIScheduler())
+        disposable.inner = CompositeDisposable([
+            self.items <~ viewDidLoadSignal.output
+                .flatMap(.latest, { _ in producer })
+                .observe(on: UIScheduler())
+        ])
     }
 
     var numberOfSections: Int {
         return 1
     }
 
-    func item(at indexPath: IndexPath) -> Article.Response {
+    func item(at indexPath: IndexPath) -> Elements.Element {
         return items.value[indexPath.row]
     }
 
