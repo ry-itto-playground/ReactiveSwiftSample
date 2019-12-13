@@ -1,0 +1,24 @@
+PODS:
+  - QiitaAPIKit (0.0.7)
+  - ReactiveCocoa (10.1.0):
+    - ReactiveSwift (~> 6.1)
+  - ReactiveSwift (6.1.0)
+
+DEPENDENCIES:
+  - QiitaAPIKit
+  - ReactiveCocoa
+
+SPEC REPOS:
+  trunk:
+    - QiitaAPIKit
+    - ReactiveCocoa
+    - ReactiveSwift
+
+SPEC CHECKSUMS:
+  QiitaAPIKit: 3a3948ff6fc4c1f30832e108b5ab78e60acc6602
+  ReactiveCocoa: 2f1d942d79072eded6d8c3bc7c2a641d40855a56
+  ReactiveSwift: b78c7259f8ca46368238c895ae33a6a3bf9f811c
+
+PODFILE CHECKSUM: 4f20e73940b00a292c3796294b086287e969f730
+
+COCOAPODS: 1.8.4
